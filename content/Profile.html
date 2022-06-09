@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Desktop -->
+	<link rel="stylesheet" type="text/css" href="../css/DesktopView.css" media="screen and (min-width: 1025px)">
+
+	<!-- Mobile -->
+	<link rel="stylesheet" type="text/css" href="../css/MobileView.css" media="screen and (max-width: 767px)">
+
+	<!-- Tablet -->
+	<link rel="stylesheet" type="text/css" href="../css/TabletView.css" media="screen and (min-width: 768px) and (max-width: 1024px)">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="content_style.css">
+	<title></title>
+</head>
+<body>
+	<header>
+		<div class = "navbar">
+			<a href="../index.html">HOME</a>
+			<a href="AboutMe.html">ABOUT ME</a>
+			<a href="Profile.html" class = "active">PROFILE</a>
+			<a href="Project.html">PROJECTS</a>
+		</div>
+	</header>
+	<div class = "profile-main-row">
+		<div class = "prof-row-1">
+			<div class = "cont-prof-col-1">
+				<div class = "pers-pic">
+					<img class = "imgGrad" src="../imgs/gradPic.jpg">
+				</div>
+				<div class = "pers-desc">
+					<div class = "desc-name">
+						<h2>Steven M. Caboteja</h2>
+					</div>
+					<p class = "desc-info">	
+						21 years old, Male<br><br>
+						College: STI College Global City<br><br>
+						High School: Benigno "Ninoy" S. Aquino High School<br><br>
+						gmail: stevencaboteja531@gmail.com<br><br>
+						O365: caboteja.081348@globalcity.sti.edu.ph<br><br>
+					</p>
+				</div>
+				<a href="https://drive.google.com/file/d/1-a7ol4AnPIT9mhto88PVXMiZSY_ycdKO/view?usp=sharing" target="_blank">
+					<div class = "pers-cv">
+						Download CV
+					</div>
+				</a>
+			</div>
+			<div class = "prof-col-2">
+				<div class = "cont-career-goals">
+					<div class = "goals-col-1">
+						<h2>CAREER GOALS:</h2>
+							<p id = "desc-goals">
+								To become an indie game developer<br><br>
+								To become a web developer<br><br>
+							</p>
+						</div>
+						<div class = "goals-col-2">
+							<img class = "imgGameDev"src="../imgs/gameDev.png">
+						</div>
+					</div>
+					<div class = "cont-certifs">
+						<div class = "certif-title">
+							<h2>CERTIFICATES & AWARDS</h2>
+						</div>
+						<div class = "imageSlider">
+							<span class = "slide-navgt" onclick="prevImg()">
+								<h2><</h2>
+							</span>
+							<div class = "slide-Display">
+								<img class = "img-certs" src="../imgs/hackathon.png" id = "images">
+							</div>
+							<span class = "slide-navgt" onclick="nextImg()">
+								<h2>></h2>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class = "cont-prof-skills">
+				<h2>SKILLS</h2>
+				<div class = "group-logo">
+					<div class = "skill-java">
+					<img class = "logos" src="../imgs/logo-java.png">
+				</div>
+
+				<div class = "skill-csharp">
+					<img class = "logos" src="../imgs/logo-csharp.png">
+				</div>
+
+				<div class = "skill-html">
+					<img class = "logos" src="../imgs/logo-html.png">
+				</div>
+
+				<div class = "skill-python">
+					<img class = "logos" src="../imgs/logo-python.png">
+				</div>
+
+				<div class = "skill-js">
+					<img class = "logos" src="../imgs/logo-js.png">
+				</div>
+
+				<div class = "skill-comp">
+					<img class = "logos" src="../imgs/logo-comp.png">
+				</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			
+			var imgArray = new Array();
+
+			imgArray[0] = new Image();
+			imgArray[0].src = '../imgs/sap.png';
+
+			imgArray[1] = new Image();
+			imgArray[1].src = '../imgs/hackathon.png';
+
+			imgArray[2] = new Image();
+			imgArray[2].src = '../imgs/practical.jpg';
+
+			function nextImg(){
+
+				var img = document.getElementById("images");
+
+				for(var i = 0; i < imgArray.length;i++){
+					if(imgArray[i].src == img.src){
+						if(i === imgArray.length){
+							document.getElementById("images").src = imgArray[0].src;
+							break;
+						}
+						document.getElementById("images").src = imgArray[i+1].src;
+						break;
+					}
+				}
+			}
+
+			function prevImg(){
+				
+				var img = document.getElementById("images");
+
+				for(var i = imgArray.length-1; i >=0 ;i--){
+					if(imgArray[i].src == img.src){
+						if(i === imgArray.length){
+							document.getElementById("images").src = imgArray[2].src;
+								break;
+							}
+							document.getElementById("images").src = imgArray[i-1].src;
+							break;
+						}
+					}	
+				}
+		</script>
+	</body>
+</html>

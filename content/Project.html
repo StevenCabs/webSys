@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Desktop -->
+	<link rel="stylesheet" type="text/css" href="../css/DesktopView.css" media="screen and (min-width: 1025px)">
+
+	<!-- Mobile -->
+	<link rel="stylesheet" type="text/css" href="../css/MobileView.css" media="screen and (max-width: 767px)">
+
+	<!-- Tablet -->
+	<link rel="stylesheet" type="text/css" href="../css/TabletView.css" media="screen and (min-width: 768px) and (max-width: 1024px)">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="content_style.css">
+	<title></title>
+</head>
+<body>
+	<header>
+		<div class = "navbar">
+			<a href="../index.html">HOME</a>
+			<a href="AboutMe.html">ABOUT ME</a>
+			<a href="Profile.html">PROFILE</a>
+			<a href="Project.html" class = "active">PROJECTS</a>
+		</div>
+	</header>
+	<div id = "fullScreen" onclick="closeNav(this.id)">
+		<img id = "fullImg" src="">
+	</div>
+
+	<div class = "project-row">
+		<div class = "row-proj-upper">
+			<div class = "proj-img-airfield">
+				<span class="tooltiptext">This is a stationary shooter game that I'm currently developing. It still isn't finished,however.</span>
+				<span class = "slide-navgt" onclick = "prevAir()">
+					<h2><</h2>
+				</span>
+				<img class = "imgScale" src="../imgs/airfield/titleScreen.png" id = "airfield" onclick = "openNav(this.id)">
+				<span class = "slide-navgt" onclick = "nextAir()">
+					<h2>></h2>
+				</span>
+			</div>
+			<div class = "proj-img-fischer">
+				<a href = "../imgs/bobbyWeb/index.html" target = "_blank">
+					<span class="tooltiptext">A website I developed in tribute of Bobby Fischer. Click this tooltip to visit.</span>
+				</a>
+				<img class = "imgScale" src="../imgs/fischerWeb.png" id = "fischer" onclick = "openNav(this.id)">
+			</div>
+		</div>
+		<div class = "row-proj-lower">
+			<div class = "proj-img-learnit">
+				<span class="tooltiptext">An app our group developed during Senior High School</span>
+				<span class = "slide-navgt" onclick = "prevApp()">
+					<h2><</h2>
+				</span>
+				<img class = "imgScale2" src="../imgs/learnit/app-front.jpg" id = "learnit" onclick = "openNav(this.id)">
+				<span class = "slide-navgt" onclick = "nextApp()">
+					<h2>></h2>
+				</span>
+			</div>
+			
+			<div class = "proj-img-infographs">
+				<span class="tooltiptext">Some infographs I made for school activities</span>
+				<span class = "slide-navgt" onclick = "prevInfo()">
+								<h2><</h2>
+							</span>
+				<img class = "imgScale2" src="../imgs/infographics/infograph1.png" id = "infographics" onclick = "openNav(this.id)">
+				<span class = "slide-navgt" onclick = "nextInfo()">
+					<h2>></h2>
+				</span>
+			</div>
+			
+			<div class = "proj-img-pixel-art">
+				<span class="tooltiptext">A few of the sprites I made that I might use for the future</span>
+				<span class = "slide-navgt" onclick = "prevSprite()">
+					<h2><</h2>
+				</span>
+				<img class = "imgScale3" src="../imgs/sprites/bird.gif" id = "sprites" onclick = "openNav(this.id)">
+				<span class = "slide-navgt" onclick = "nextSprite()">
+					<h2>></h2>
+				</span>
+			</div>
+	</div>
+</div>
+
+	<script type="text/javascript">
+
+		var imgFull = " ";
+
+		// var win = window.matchMedia();
+
+		var airfieldArray = new Array();
+
+		airfieldArray[0] = new Image();
+		airfieldArray[0].src = '../imgs/airfield/titleScreen.png';
+
+		airfieldArray[1] = new Image();
+		airfieldArray[1].src = '../imgs/airfield/pauseScreen.png';
+
+		airfieldArray[2] = new Image();
+		airfieldArray[2].src = '../imgs/airfield/gamePlay.png';
+
+		var infoArray = new Array();
+
+		infoArray[0] = new Image();
+		infoArray[0].src = '../imgs/infographics/infograph1.png';
+
+		infoArray[1] = new Image();
+		infoArray[1].src = '../imgs/infographics/infograph2.png';
+
+		infoArray[2] = new Image();
+		infoArray[2].src = '../imgs/infographics/infograph3.png';
+
+		var spriteArray = new Array();
+
+		spriteArray[0] = new Image();
+		spriteArray[0].src = '../imgs/sprites/bird.gif';
+
+		spriteArray[1] = new Image();
+		spriteArray[1].src = '../imgs/sprites/glass.gif';
+
+		spriteArray[2] = new Image();
+		spriteArray[2].src = '../imgs/sprites/ogre.gif';
+
+		var learnArray = new Array();
+
+		learnArray[0] = new Image();
+		learnArray[0].src = '../imgs/learnit/app-front.jpg';
+
+		learnArray[1] = new Image();
+		learnArray[1].src = '../imgs/learnit/app-mods.jpg';
+
+		learnArray[2] = new Image();
+		learnArray[2].src = '../imgs/learnit/app-quiz.jpg';
+
+		// -------------------------FULLSCREEN----------------------------------------
+
+		function openNav(clicked_id){
+
+			// if(win.matches){
+
+				imgFull = document.getElementById(clicked_id).src;
+				document.getElementById("fullImg").src = document.getElementById(clicked_id).src;
+				document.getElementById("fullScreen").style.display = "block";
+			}
+		// }
+
+
+		function closeNav(clicked_id){
+
+			// if(win.matches){
+
+				document.getElementById(clicked_id).style.display = "none";
+			// }
+		}
+		// -----------------------------GAME SCREENSHOT------------------------------------
+
+		function nextAir(){
+			
+			var img = document.getElementById("airfield");
+
+			for(var i = 0; i < airfieldArray.length;i++){
+				if(airfieldArray[i].src == img.src){
+					if(i === airfieldArray.length){
+						document.getElementById("airfield").src = airfieldArray[0].src;
+						break;
+					}
+					document.getElementById("airfield").src = airfieldArray[i+1].src;
+					break;
+				}
+			}
+		}
+
+		function prevAir(){
+
+			var img = document.getElementById("airfield");
+
+			for(var i = airfieldArray.length-1; i >=0 ;i--){
+				if(airfieldArray[i].src == img.src){
+					if(i === airfieldArray.length){
+						document.getElementById("airfield").src = airfieldArray[2].src;
+						break;
+					}
+					document.getElementById("airfield").src = airfieldArray[i-1].src;
+					break;
+				}
+			}	
+		}
+
+		// ------------------------------INFOGRAPH SCREENSHOTS------------------------------
+
+		function nextInfo(){
+			
+			var img = document.getElementById("infographics");
+
+			for(var i = 0; i < infoArray.length;i++){
+				if(infoArray[i].src == img.src){
+					if(i === infoArray.length){
+						document.getElementById("infographics").src = infoArray[0].src;
+						break;
+					}
+					document.getElementById("infographics").src = infoArray[i+1].src;
+					break;
+				}
+			}
+		}
+
+		function prevInfo(){
+
+			var img = document.getElementById("infographics");
+
+			for(var i = infoArray.length-1; i >=0 ;i--){
+				if(infoArray[i].src == img.src){
+					if(i === infoArray.length){
+						document.getElementById("infographics").src = infoArray[2].src;
+						break;
+					}
+					document.getElementById("infographics").src = infoArray[i-1].src;
+					break;
+				}
+			}	
+		}
+		// ------------------------------SPRITE SCREENSHOTS------------------------------
+		function nextSprite(){
+			
+			var img = document.getElementById("sprites");
+
+			for(var i = 0; i < spriteArray.length;i++){
+				if(spriteArray[i].src == img.src){
+					if(i === spriteArray.length){
+						document.getElementById("sprites").src = spriteArray[0].src;
+						break;
+					}
+					document.getElementById("sprites").src = spriteArray[i+1].src;
+					break;
+				}
+			}
+		}
+
+		function prevSprite(){
+
+			var img = document.getElementById("sprites");
+
+			for(var i = spriteArray.length-1; i >=0 ;i--){
+				if(spriteArray[i].src == img.src){
+					if(i === spriteArray.length){
+						document.getElementById("sprites").src = spriteArray[2].src;
+						break;
+					}
+					document.getElementById("sprites").src = spriteArray[i-1].src;
+					break;
+				}
+			}	
+		}
+		// ------------------------------APP SCREENSHOTS------------------------------
+		function nextApp(){
+			
+			var img = document.getElementById("learnit");
+
+			for(var i = 0; i < learnArray.length;i++){
+				if(learnArray[i].src == img.src){
+					if(i === learnArray.length){
+						document.getElementById("learnit").src = learnArray[0].src;
+						break;
+					}
+					document.getElementById("learnit").src = learnArray[i+1].src;
+					break;
+				}
+			}
+		}
+
+		function prevApp(){
+
+			var img = document.getElementById("learnit");
+
+			for(var i = learnArray.length-1; i >=0 ;i--){
+				if(learnArray[i].src == img.src){
+					if(i === learnArray.length){
+						document.getElementById("learnit").src = learnArray[2].src;
+						break;
+					}
+					document.getElementById("learnit").src = learnArray[i-1].src;
+					break;
+				}
+			}	
+		}
+	</script>
+</body>
+</html>
