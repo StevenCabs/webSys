@@ -1,3 +1,3 @@
 # webSys
-Mobile: Pixel 5
-Table: iPad
+Mobile: Pixel 5 <br>
+Tablet: iPad
